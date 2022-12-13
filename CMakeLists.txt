@@ -45,8 +45,10 @@ else()
 endif()
 
 add_executable(main main.cpp)
+add_executable(main2 main2.cpp)
 
 target_link_libraries(main event event_core event_extra event_openssl ${LIB_PLATFORM})
+target_link_libraries(main2 event event_core event_extra event_openssl ${LIB_PLATFORM})
 
 
 
