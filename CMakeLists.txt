@@ -10,7 +10,7 @@ project(libevent-demo-cmake VERSION 1.0.0)
 # cmake .. -DCMAKE_BUILD_TYPE=Release
 # -----------------------------------------
 
-# set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Debug)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release
@@ -38,7 +38,11 @@ endif()
 include_directories(${libevent_INCLUDE_DIRS})
 link_directories(${libevent_LIBRARY_DIRS})
 
-set(LIB_PLATFORM ws2_32 shell32 advapi32 Iphlpapi)
+if (UNIX)
+
+else()
+    set(LIB_PLATFORM ws2_32 shell32 advapi32 Iphlpapi)
+endif()
 
 add_executable(main main.cpp)
 
